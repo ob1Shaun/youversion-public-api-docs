@@ -3,6 +3,9 @@
 This project contains the Sphinx-generated documentation to describe our
 publicly available APIs.
 
+The live version of this documentation is currently hosted at: https://yv-public-api-docs-draft.netlify.com/
+
+
 ## How to modify and work on the docs
 
 ### Set up
