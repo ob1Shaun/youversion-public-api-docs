@@ -1,4 +1,3 @@
 [build]
   publish = "docs/build/html"
   command = "make html"
-  base = "docs"

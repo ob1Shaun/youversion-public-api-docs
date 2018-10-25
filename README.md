@@ -17,8 +17,7 @@ Sphinx (http://www.sphinx-doc.org/), using reStructuredText formatting (http://w
 
 ### Build and view the docs locally
 
- - `cd docs` (go into the `docs` directory)
- - Run `make html` (builds docs into `docs/build/html/`)
+ - Run `make html` from the project root (builds docs into `docs/build/html/`)
 
 To view the docs, you can find the `index.html` file in the
 build output directory. To make sure everything behaves like
