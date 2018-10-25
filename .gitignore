@@ -1,0 +1,5 @@
+# Don't track the final builds:
+docs/build
+
+# No need to track VSCode workspace settings, etc:
+.vscode/
