@@ -49,3 +49,13 @@ Open Digerati
 
 Curious what else we're doing with Open Source? This project is part of
 Open Digerati! You can find out more at https://opendigerati.com/
+
+
+This Documentation
+==================
+
+These docs are open source. Suggestions for improvements (and pull requests) are welcome! You can view the code repository at
+https://github.com/lifechurch/youversion-public-api-docs.
+
+They are
+built and deployed to https://yv-public-api-docs-draft.netlify.com/
