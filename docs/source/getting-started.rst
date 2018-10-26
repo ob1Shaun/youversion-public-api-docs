@@ -25,18 +25,77 @@ That token is sent as a request header ``X-YouVersion-Developer-Token``, the val
 In addition to that token, our API endpoints expect a couple **required** headers
 to be sent along with the request. Currently, those are:
 
-- ``accept``: Presently we'll be responding to public APIs with JSON, so the valid value here is ``application/json``.
-- ``referer``: A "referer" value is required. Ideally, this is the URL of the app or website that is making the request.
 
-For example, here's what a CURL request might look like for getting the Verse Of The Day for the first day of the year:
+Required Headers
+----------------
 
-.. code-block:: text
+The following HTTP request headers *must* be present, with a valid value,
+for any request to the public API:
 
-    curl --request GET \
-        --url https://developers.youversionapi.com/1.0/verse_of_the_day/1 \
-        --header 'accept: application/json' \
-        --header 'referer: https://your-app-url.com/' \
-        --header 'x-youversion-developer-token: {your_developer_token}'
+.. list-table::
+    :header-rows: 1
+    :widths: 50 50
+
+    * - Header
+      - Description
+    * - ``x-youversion-developer-token``
+      - **Required**. Your personal API access token, provided in the YouVersion API Developers Portal.
+    * - ``accept``
+      - **Required**. Presently we'll be responding to public APIs with JSON, so the valid value here is ``application/json``.
+    * - ``referer``
+      - **Required**. A "referer" value is required. Ideally, this is the URL of the app or website that is making the request. E.g., ``https://example.com/``.
+    * - ``host``
+      - **Required**. Almost always sent automatically by clients, so you likely don't have to provide this explicitly. Usually contains the domain portion of the request URL, e.g. ``developers.youversionapi.com``.
+    * - ``user-agent``
+      - **Required**. Provided automatically by many clients. This header must have a value for the request to be considered valid. This can be the name of your app or API client.
+
+
+Here are some examples showing what a valid request might look like for getting the :doc:`Verse Of The Day <api/votd>` for the first day of the year:
+
+.. content-tabs::
+
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+
+            curl --request GET \
+                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1 \
+                --header 'accept: application/json' \
+                --header 'referer: https://your-app-url.com/' \
+                --header 'x-youversion-developer-token: {your_developer_token}'
+
+    .. tab-container:: js
+        :title: javascript
+
+        .. code-block:: javascript
+
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1', {
+            headers: {
+                'X-YouVersion-Developer-Token': '{your_developer_token}',
+                'Referer': 'https://your-app-url.com/',
+                Accept: 'application/json',
+            }
+            })
+            .then((result) => result.json())
+            .then((json) => console.log(json))
+
+    .. tab-container:: node
+        :title: node
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: python
+        :title: python
+
+        .. code-block:: python
+
+            # TODO
+
+
+
 
 
 Getting an API Token
