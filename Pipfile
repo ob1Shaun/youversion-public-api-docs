@@ -8,6 +8,7 @@ name = "pypi"
 [packages]
 sphinx = "*"
 sphinx-materialdesign-theme = "*"
+sphinxcontrib-contentui = "*"
 
 [requires]
 python_version = "3.6"
