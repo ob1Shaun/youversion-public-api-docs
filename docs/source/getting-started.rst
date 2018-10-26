@@ -105,6 +105,21 @@ TODO: Walkthrough. Where and how?
 
 Visit the YouVersion API Developers Portal: https://developers.youversion.com
 
+Sign in there with your existing YouVersion account credentials to authorize
+the app to supply your account with a developer token.
+
+Once the app is authorized with your YouVersion account you should see an
+option to "Get My Token".
+
+After requesting an API token, you should see a new token appear. You can
+copy this token for use in making authorized requests to the API.
+Something like this:
+
+.. image:: getting-started-token-example.png
+
+You can also use the "refresh" option to deactivate your current token, and
+have a new one created for you.
+
 
 Applications built with YouVersion Public APIs
 ==============================================
