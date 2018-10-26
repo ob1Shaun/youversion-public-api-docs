@@ -125,6 +125,8 @@ Example Response
     }
 
 
+.. _configuration-response:
+
 Configuration response properties
 =================================
 

@@ -406,4 +406,26 @@ TODO
 Verse Of The Day Images
 =======================
 
-TODO
+You may notice that each Verse Of The Day Resource is returned with an
+``image`` property, containing an ``attribution`` and an ``id``.
+
+.. note::
+
+    This is a work in progress. For a glimpse at what you might be working
+    with, see: :ref:`configuration-response`
+
+
+.. note::
+
+    Note: The URL returned in **verse_of_the_day_images_base_url** will provide some values for you to replace.
+
+    - **{width}** and **{height}** : should be replaced with integers, each with a max of `1280`. Because our VOTD images are currently square, 1:1 size ratio, the
+      image CDN with automatically crop the square to the smallest size you provide here. For the time, it's best and most consistent for these integers to be the same.
+    - **{image_id}**: An integer representing the VOTD image you want to display. This value is provided on the Verse Of The Day Resource, as the `id` property on the `image` object property.
+
+
+.. attention::
+
+    You may notice the URL returned in **verse_of_the_day_images_base_url**  is prefixed with an "image-proxy" CDN URL.
+
+    For performance and caching, you'll want to use the full URL provided, replacing just the template variables. Utilizing just the S3/other location directly will result in unnecessary increase in load times, and larger image sizes.
