@@ -1,3 +1,5 @@
+.. _api-configuration:
+
 =============
 Configuration
 =============
@@ -11,9 +13,6 @@ It will help answer questions that might arise for other endpoints, like:
 - What Bible Versions are valid?
 - What URL should I use to get a Verse Of The Day image?
 - What language tags are valid for an endpoint?
-
-
-We'll look at an example reponse, and then break down all the parts.
 
 
 Get the Configuration info
@@ -36,8 +35,6 @@ Example request using CURL:
         --header 'accept: application/json' \
         --header 'referer: https://your-app-url.com/' \
         --header 'x-youversion-developer-token: {your_developer_token}'
-
-
 
 
 Example Response
@@ -107,17 +104,17 @@ Configuration response properties
       - Type
       - Description
     * - verse_of_the_day_bible_versions
-      - list of Bible Versions
-      - This item is a list of objects representing a particular Bible Version.
+      - list of :doc:`Bible Versions <versions>`
+      - This item is a list of objects representing a particular :doc:`Bible Version <versions>`.
         Each version represented here is a valid version for requesting VOTD text.
-        The value of the *abbreviation* key can be provided to the *verse_of_the_day*
-        or *verse_of_the_day/{day}/* endpoints as the *version* parameter.
+        The value of the *abbreviation* key can be provided to the :doc:`Verse Of The Day <votd>`
+        endpoints as the ``version`` parameter.
     * - verse_of_the_day_images_language_tags
       - list of language tags
-      - This is a list of language tags that are valid for passing to the VOTD endpoints, when specifying an Accept-Language header on the request.
+      - This is a list of language tags that are valid for passing to the :doc:`VOTD <votd>` endpoints, when specifying an Accept-Language header on the request.
     * - verse_of_the_day_images_base_url
       - string
-      - This is a template URL for retrieving VOTD images. See Note below.
+      - This is a template URL for retrieving :ref:`VOTD images <api-votd-images>`. See those docs, and the note below.
 
 .. note::
 

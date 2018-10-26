@@ -26,7 +26,7 @@ But first
 Before you'll be able to get started using the API's, you'll need to get
 an access token to send along with each API request.
 
-That's explained in the Getting Started section.
+That's explained in the :ref:`getting-started` section.
 
 If you already have a token, you can head on over to the API documentation, and
 see example requests, responses, and how to interact with the API!
