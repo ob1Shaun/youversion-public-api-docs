@@ -15,15 +15,41 @@ Get a list of available Bible Versions
 **GET** /versions
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Example request using CURL:
+Example request
 
-.. code-block:: text
+.. content-tabs::
 
-    curl --request GET \
-        --url https://developers.youversionapi.com/1.0/versions \
-        --header 'accept: application/json' \
-        --header 'referer: https://your-app-url.com/' \
-        --header 'x-youversion-developer-token: {your_developer_token}'
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+
+            curl --request GET \
+                --url https://developers.youversionapi.com/1.0/versions \
+                --header 'accept: application/json' \
+                --header 'referer: https://your-app-url.com/' \
+                --header 'x-youversion-developer-token: {your_developer_token}'
+
+    .. tab-container:: js
+        :title: javascript
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: node
+        :title: node
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: python
+        :title: python
+
+        .. code-block:: python
+
+            # TODO
 
 
 Example Response

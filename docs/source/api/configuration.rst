@@ -4,6 +4,11 @@
 Configuration
 =============
 
+.. note::
+
+    This API may be removed shortly, as better options are being actively developed.
+
+
 The "Configuration" endpoint provides default template values,
 and shows valid values for some parameters that you can pass to related
 API calls.
@@ -28,13 +33,40 @@ Get the Configuration info
 
 Example request using CURL:
 
-.. code-block:: text
+.. content-tabs::
 
-    curl --request GET \
-        --url https://developers.youversionapi.com/1.0/configuration \
-        --header 'accept: application/json' \
-        --header 'referer: https://your-app-url.com/' \
-        --header 'x-youversion-developer-token: {your_developer_token}'
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+
+            curl --request GET \
+                --url https://developers.youversionapi.com/1.0/configuration \
+                --header 'accept: application/json' \
+                --header 'referer: https://your-app-url.com/' \
+                --header 'x-youversion-developer-token: {your_developer_token}'
+
+
+    .. tab-container:: js
+        :title: javascript
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: node
+        :title: node
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: python
+        :title: python
+
+        .. code-block:: python
+
+            # TODO
 
 
 Example Response
