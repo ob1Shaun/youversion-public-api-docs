@@ -1,3 +1,6 @@
+.. _api-votd:
+
+
 ================
 Verse Of The Day
 ================
@@ -9,9 +12,11 @@ Get YouVersion Verse Of The Day content for display in your own website or app!
     :alt: example display
     :align: center
 
+
+.. _api-votd-get-single:
+
 Get a single Verse Of The Day item
 ==================================
-
 
 **GET** /verse_of_the_day/{int: day_of_year}
 --------------------------------------------
@@ -40,7 +45,7 @@ Query Parameters
     * - fields
       - Optional. A comma separated list of fields to return. Default is `*` (all fields).
     * - version
-      - Optional. The Bible Version abbreviation that you want the content returned in. See the Configuration endpoint for valid options.
+      - Optional. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`Configuration <configuration>` endpoint for valid options.
 
 
 Request Headers
@@ -80,6 +85,8 @@ Example Response
         },
     }
 
+
+.. _api-votd-get-multiple:
 
 Get many Verse Of The Day items
 ===============================
@@ -134,7 +141,7 @@ Query Parameters
     * - page_size
       - Optional. Integer representing "size of page", for pagination purposes. How many items to return per page.
     * - version
-      - Optional. The Bible Version abbreviation that you want the content returned in. See the Configuration endpoint for valid options.
+      - Optional. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`Configuration <configuration>` endpoint for valid options.
 
 
 Request Headers
@@ -149,7 +156,7 @@ Request Headers
     * - `X-YouVersion-Developer-Token`
       - **Required**. Authentication token.
 
-        See Getting Started section for how to get a token.
+        See :ref:`getting-started` section for how to get a token.
 
 
 Response Properties
@@ -164,7 +171,7 @@ Response Properties
       - Description
     * - data
       - array
-      - List of VOTD objects. See the Verse Of The Day resource examples for examples of what it contains.
+      - List of VOTD objects. See the Verse Of The Day resource examples for details of what it contains.
     * - next_page
       - boolean
       - Boolean indicating whether a "next page" exists, if results are paginated.
@@ -218,12 +225,15 @@ Example Response
     }
 
 
+.. _api-votd-bible-version:
 
 Specifying Bible Version
 ========================
 
 TODO
 
+
+.. _api-votd-images:
 
 Verse Of The Day Images
 =======================

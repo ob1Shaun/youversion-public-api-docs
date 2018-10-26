@@ -1,10 +1,12 @@
+.. _api-versions:
+
 ========
 Versions
 ========
 
 The Versions endpoint provides a list of valid Bible Versions. The abbreviations
 for these versions are used by the Verse Of The Day APIs, when passing
-the `version` parameter.
+the ``version`` parameter.
 
 
 Get a list of available Bible Versions
@@ -22,8 +24,6 @@ Example request using CURL:
         --header 'accept: application/json' \
         --header 'referer: https://your-app-url.com/' \
         --header 'x-youversion-developer-token: {your_developer_token}'
-
-
 
 
 Example Response
@@ -64,11 +64,11 @@ Configuration response properties
       - Type
       - Description
     * - data
-      - list of Bible Versions
-      - This item is a list of objects representing a particular Bible Version.
+      - list of :doc:`Bible Versions <versions>`
+      - This item is a list of objects representing a particular :doc:`Bible Version <versions>`.
         Each version represented here is a valid version for requesting VOTD text.
-        The value of the *abbreviation* key can be provided to the *verse_of_the_day*
-        or *verse_of_the_day/{day}/* endpoints as the *version* parameter.
+        The value of the *abbreviation* key can be provided to the :doc:`Verse Of The Day <votd>`
+        endpoints as the ``version`` parameter.
     * - next_page
       - boolean
       - Boolean indicating whether a "next page" exists, if results are paginated.
