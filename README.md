@@ -34,6 +34,27 @@ Like this:
 - open browser to `http://0.0.0.0:8000/`
 - See docs!
 
+### Other details
+
+This project uses the 'contentui' extension for Sphinx, to lay out the
+code snippets in a tabbed UI. It enables a new directive that looks like this:
+
+```
+.. content-tabs::
+
+    .. tab-container::
+        :title: Tab 1
+
+        This content is shown when "Tab 1" is the selected tab.
+
+    .. tab-container::
+        :title: Tab 2
+
+        This content is shown when "Tab 1" is the selected tab.
+```
+
+See their docs for more info: https://sphinxcontrib-contentui.readthedocs.io/en/latest/index.html
+
 ## License
 
-See the ``LICENSE`` file in this repository.
+See the `LICENSE` file in this repository.

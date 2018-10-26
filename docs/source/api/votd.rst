@@ -21,16 +21,62 @@ Get a single Verse Of The Day item
 **GET** /verse_of_the_day/{int: day_of_year}
 --------------------------------------------
 
-Example request using CURL:
+Example request
 
-.. code-block:: text
-    :caption: Get the VOTD for the first day of the year
 
-    curl --request GET \
-        --url https://developers.youversionapi.com/1.0/verse_of_the_day/1 \
-        --header 'accept: application/json' \
-        --header 'referer: https://your-app-url.com/' \
-        --header 'x-youversion-developer-token: {your_developer_token}'
+.. content-tabs::
+
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+            :caption: Get the VOTD for the first day of the year
+
+            curl --request GET \
+                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1 \
+                --header 'accept: application/json' \
+                --header 'referer: https://your-app-url.com/' \
+                --header 'x-youversion-developer-token: {your_developer_token}'
+
+    .. tab-container:: js
+        :title: javascript
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: node
+        :title: node
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: python
+        :title: python
+
+        .. code-block:: python
+
+            import os
+            import requests
+
+            # Assuming you keep your tokens in environment variables:
+            YOUVERSION_DEVELOPER_TOKEN = os.environ['YOUVERSION_DEVELOPER_TOKEN']
+
+            headers = {
+                'accept': "application/json",
+                "referer": "https://your-app-url.com/",
+                "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
+                "accept-language": "de"
+            }
+            response = requests.get(
+                "https://developers.youversionapistaging.com/1.0/verse_of_the_day/1",
+                headers=headers
+            )
+
+
+
+
 
 
 Query Parameters
@@ -113,16 +159,36 @@ having to request the Verse Of The Day on startup, for example.
 **GET** /verse_of_the_day
 --------------------------------------------
 
-Example request using CURL:
+Example request
 
-.. code-block:: text
-    :caption: Get all current VOTD content for the whole year
+.. content-tabs::
 
-    curl --request GET \
-        --url https://developers.youversionapi.com/1.0/verse_of_the_day/ \
-        --header 'accept: application/json' \
-        --header 'referer: https://your-app-url.com/' \
-        --header 'x-youversion-developer-token: {your_developer_token}'
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+            :caption: Get all current VOTD content for the whole year
+
+            curl --request GET \
+                --url https://developers.youversionapi.com/1.0/verse_of_the_day/ \
+                --header 'accept: application/json' \
+                --header 'referer: https://your-app-url.com/' \
+                --header 'x-youversion-developer-token: {your_developer_token}'
+
+    .. tab-container:: js
+        :title: javascript
+
+        TODO
+
+    .. tab-container:: node
+        :title: node
+
+        TODO
+
+    .. tab-container:: python
+        :title: python
+
+        TODO
 
 
 Query Parameters
@@ -229,6 +295,108 @@ Example Response
 
 Specifying Bible Version
 ========================
+
+If you'd like to retrieve VOTD with text from a specific Bible version, you can
+pass an optional ``version`` query parameter with your request.
+The list of valid values for ``version`` are available from the
+:doc:`versions` endpoint.
+
+Here's an example request for a single VOTD, in the King James Version:
+
+.. content-tabs::
+
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+
+            curl --request GET \
+                --url 'https://developers.youversionapistaging.com/1.0/verse_of_the_day/1?version=kjv' \
+                --header 'accept: application/json' \
+                --header 'referer: https://your-app-url.com/' \
+                --header 'x-youversion-developer-token: {your_developer_token}'
+
+    .. tab-container:: js
+        :title: javascript
+
+        TODO
+
+    .. tab-container:: node
+        :title: node
+
+        TODO
+
+    .. tab-container:: python
+        :title: python
+
+        TODO
+
+.. _api-votd-languages:
+
+Languages and default Versions
+------------------------------
+
+.. note::
+
+    Some of the bahavior described here is still Work In Progress, and
+    may not be 100% accurate.
+
+YouVersion APIs maintain a list of default Bible Versions for many languages,
+for use when language information is included in the request, but a Version was
+not specified.
+
+This allows us to do our best to honor the ``Accept-Language`` header from
+browsers and other API clients, and send something that most likely matches
+the end users' language and expectations.
+
+If you send the optional ``Accept-Language`` header with your request, on a
+VOTD endpoint, **and** you don't specify a value for the ``version``
+query parameter, we'll try to send content back in a version that makes sense.
+
+Here's an example of a request that specifies a language, but no version:
+
+.. content-tabs::
+
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+
+            curl --request GET \
+                --url 'https://developers.youversionapistaging.com/1.0/verse_of_the_day/1' \
+                --header 'accept: application/json' \
+                --header 'referer: https://your-app-url.com/' \
+                --header 'x-youversion-developer-token: {your_developer_token}'
+                --header 'accept-language: de'
+
+
+    .. tab-container:: js
+        :title: javascript
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: node
+        :title: node
+
+        .. code-block:: javascript
+
+            // TODO
+
+    .. tab-container:: python
+        :title: python
+
+        .. code-block:: python
+
+            # TODO
+
+
+Response:
+
+.. code-block:: json
+
+    {}
 
 TODO
 
