@@ -6,6 +6,5 @@ Available APIs
    :maxdepth: 2
    :caption: Available APIs:
 
-   configuration
    versions
    votd

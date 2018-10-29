@@ -70,7 +70,7 @@ Example request
                 "accept-language": "de"
             }
             response = requests.get(
-                "https://developers.youversionapistaging.com/1.0/verse_of_the_day/1",
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1",
                 headers=headers
             )
 
@@ -311,7 +311,7 @@ Here's an example request for a single VOTD, in the King James Version:
         .. code-block:: text
 
             curl --request GET \
-                --url 'https://developers.youversionapistaging.com/1.0/verse_of_the_day/1?version=kjv' \
+                --url 'https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv' \
                 --header 'accept: application/json' \
                 --header 'referer: https://your-app-url.com/' \
                 --header 'x-youversion-developer-token: {your_developer_token}'
@@ -363,7 +363,7 @@ Here's an example of a request that specifies a language, but no version:
         .. code-block:: text
 
             curl --request GET \
-                --url 'https://developers.youversionapistaging.com/1.0/verse_of_the_day/1' \
+                --url 'https://developers.youversionapi.com/1.0/verse_of_the_day/1' \
                 --header 'accept: application/json' \
                 --header 'referer: https://your-app-url.com/' \
                 --header 'x-youversion-developer-token: {your_developer_token}'
