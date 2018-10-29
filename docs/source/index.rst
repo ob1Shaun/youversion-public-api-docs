@@ -66,13 +66,6 @@ copied from the Developer Portal!
             .then((result) => result.json())
             .then((json) => console.log(json))
 
-    .. tab-container:: node
-        :title: node
-
-        .. code-block:: javascript
-
-            // TODO
-
     .. tab-container:: python
         :title: python
 
@@ -88,7 +81,7 @@ copied from the Developer Portal!
             headers = {
                 "accept": "application/json",
                 "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
-                "accept-language": "de",
+                "accept-language": "en",
             }
 
             response = requests.get(

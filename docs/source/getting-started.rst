@@ -58,9 +58,8 @@ Here are some examples showing what a valid request might look like for getting 
         .. code-block:: text
 
             curl --request GET \
-                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1 \
+                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv \
                 --header 'accept: application/json' \
-                --header 'referer: https://your-app-url.com/' \
                 --header 'x-youversion-developer-token: {your_developer_token}'
 
     .. tab-container:: js
@@ -68,29 +67,39 @@ Here are some examples showing what a valid request might look like for getting 
 
         .. code-block:: javascript
 
-            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1', {
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
             headers: {
                 'X-YouVersion-Developer-Token': '{your_developer_token}',
-                'Referer': 'https://your-app-url.com/',
                 Accept: 'application/json',
             }
             })
             .then((result) => result.json())
             .then((json) => console.log(json))
 
-    .. tab-container:: node
-        :title: node
-
-        .. code-block:: javascript
-
-            // TODO
-
     .. tab-container:: python
         :title: python
 
         .. code-block:: python
 
-            # TODO
+            import os
+
+            import requests
+
+            # Assuming you keep your tokens in environment variables:
+            YOUVERSION_DEVELOPER_TOKEN = os.environ["YOUVERSION_DEVELOPER_TOKEN"]
+
+            headers = {
+                "accept": "application/json",
+                "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
+                "accept-language": "en",
+            }
+
+            response = requests.get(
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
+                headers=headers
+            )
+
+            print(response.content)
 
 
 Optional Headers

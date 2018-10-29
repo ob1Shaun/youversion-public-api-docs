@@ -52,13 +52,6 @@ Example request
             .then((result) => result.json())
             .then((json) => console.log(json))
 
-    .. tab-container:: node
-        :title: node
-
-        .. code-block:: javascript
-
-            // TODO
-
     .. tab-container:: python
         :title: python
 
@@ -73,16 +66,12 @@ Example request
             headers = {
                 'accept': "application/json",
                 "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
-                "accept-language": "de"
+                "accept-language": "en"
             }
             response = requests.get(
                 "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
                 headers=headers
             )
-
-
-
-
 
 
 Query Parameters
@@ -176,24 +165,45 @@ Example request
             :caption: Get all current VOTD content for the whole year
 
             curl --request GET \
-            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv&=' \
+            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv' \
             --header 'accept: application/json' \
             --header 'x-youversion-developer-token: {your_developer_token}'
 
     .. tab-container:: js
         :title: javascript
 
-        TODO
-
-    .. tab-container:: node
-        :title: node
-
-        TODO
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv', {
+                headers: {
+                    'X-YouVersion-Developer-Token': '{your_developer_token}',
+                    'Accept-Language': 'en',
+                    Accept: 'application/json',
+                }
+            })
+            .then((result) => result.json())
+            .then((json) => console.log(json))
 
     .. tab-container:: python
         :title: python
 
-        TODO
+            import os
+
+            import requests
+
+            # Assuming you keep your tokens in environment variables:
+            YOUVERSION_DEVELOPER_TOKEN = os.environ["YOUVERSION_DEVELOPER_TOKEN"]
+
+            headers = {
+                "accept": "application/json",
+                "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
+                "accept-language": "en",
+            }
+
+            response = requests.get(
+                "https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv",
+                headers=headers
+            )
+
+            print(response.content)
 
 
 Query Parameters
@@ -212,7 +222,7 @@ Query Parameters
     * - page_size
       - Optional. Integer representing "size of page", for pagination purposes. How many items to return per page.
     * - version
-      - **Required**. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
+      - **Required**. The :doc:`Bible Version <api/versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
 
 
 Request Headers
@@ -328,17 +338,35 @@ Verse Of The Day Images
 You may notice that each Verse Of The Day Resource is returned with an
 ``image`` property, which contains an ``attribution`` and ``url`` value.
 
+As a reminder, here's a snippet of what that section of the response looks like:
+
+.. code-block:: javascript
+
+    // ...
+    "image": {
+        "attribution": "© YouVersion",
+        "url": "//imageproxy-cdn.youversionapi.com/{width}x{height}/https://s3.amazonaws.com/static-youversionapi-com/images/base/6024/1280x1280.jpg"
+    },
+    // ...
+
 
 Image Sizes
 -----------
 
 The URL returned in **url** will provide some values for you to replace.
 
-    - **{width}** and **{height}** : should be replaced with integers, each with
-    a max of `1280`. Because our VOTD images are currently square, 1:1 size ratio,
-    the image CDN with automatically crop the square to the smallest size you
-    provide here. For the time, it's best and most consistent for these
-    integers to be the same.
+* **{width}** and **{height}** : should be replaced with integers, each with
+  a max of ``1280``. Because our VOTD images are currently square (1:1 size ratio)
+  the image CDN with automatically crop the square to the smallest size you
+  provide here. For the time, it's best and most consistent for these
+  integers to be the same.
+
+For example, if you wanted to get the VOTD Image as a 250x250px thumbnail,
+you could use the following URL (replacing ``{width}`` and ``{height}`` each with ``250``:
+
+.. code-block:: text
+
+    https://imageproxy-cdn.youversionapi.com/250x250/https://s3.amazonaws.com/static-youversionapi-com/images/base/6024/1280x1280.jpg
 
 
 Using the Image URL
@@ -386,8 +414,59 @@ English image URL.
 
 Here's an example request for a Verse Of The Day Image in Spanish:
 
-    TODO
+.. content-tabs::
 
+    .. tab-container:: curl
+        :title: curl
+
+        .. code-block:: text
+
+            curl --request GET \
+            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv' \
+            --header 'accept: application/json' \
+            --header 'accept-language: es' \
+            --header 'x-youversion-developer-token: hfAHdr4Z8NjSqY0JkspC6j0cSPg'
+
+    .. tab-container:: js
+        :title: javascript
+
+        .. code-block:: javascript
+
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
+            headers: {
+                'X-YouVersion-Developer-Token': '{your_developer_token}',
+                Accept: 'application/json',
+                'Accept-Language': 'es',
+            }
+            })
+            .then((result) => result.json())
+            .then((json) => console.log(json))
+
+    .. tab-container:: python
+        :title: python
+
+        .. code-block:: python
+            :emphasize-lines: 11
+
+            import os
+
+            import requests
+
+            # Assuming you keep your tokens in environment variables:
+            YOUVERSION_DEVELOPER_TOKEN = os.environ["YOUVERSION_DEVELOPER_TOKEN"]
+
+            headers = {
+                "accept": "application/json",
+                "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
+                "accept-language": "es",
+            }
+
+            response = requests.get(
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
+                headers=headers
+            )
+
+            print(response.content)
 
 .. note::
 
@@ -402,8 +481,62 @@ Valid Langauge Tags
 ~~~~~~~~~~~~~~~~~~~
 
 Here is a list of valid language tags, and their language titles, for use
-requesting alternate Verse Of The Day Images:
+requesting alternate Verse Of The Day Images.
 
-    TODO
+.. list-table::
+    :header-rows: 1
+    :widths: 50 50
 
-    table
+    * - Language Name
+      - Language Tag (for ``Accept-Language`` header)
+    * - Afrikaans
+      - af
+    * - Chinese, Simplified
+      - zh_CN
+    * - Chinese, Traditional
+      - zh_TW
+    * - Dutch
+      - nl
+    * - English
+      - en
+    * - French
+      - fr
+    * - German
+      - de
+    * - Greek
+      - el
+    * - Indonesian
+      - id
+    * - Italian
+      - it
+    * - Khmer
+      - km
+    * - Korean
+      - ko
+    * - Portuguese
+      - pt
+    * - Romanian
+      - ro
+    * - Russian
+      - ru
+    * - Spanish
+      - es
+    * - Swahili
+      - sw
+    * - Swedish
+      - sv
+    * - Tagalog/Filipino
+      - tl
+    * - Ukrainian
+      - uk
+    * - Vietnamese
+      - vi
+    * - Zulu
+      - zu
+
+.. note::
+
+    This list is updated as we are
+    able to find translation help for our catalog of localizable images. If helping
+    with something that sounds interesting to you, check out our
+    volunteers information page: https://www.youversion.com/volunteers/
