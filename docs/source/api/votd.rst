@@ -172,6 +172,8 @@ Example request
     .. tab-container:: js
         :title: javascript
 
+        .. code-block:: javascript
+
             fetch('https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv', {
                 headers: {
                     'X-YouVersion-Developer-Token': '{your_developer_token}',
@@ -184,6 +186,8 @@ Example request
 
     .. tab-container:: python
         :title: python
+
+        .. code-block:: python
 
             import os
 
