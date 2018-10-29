@@ -70,7 +70,24 @@ copied from the Developer Portal!
 
         .. code-block:: python
 
-            # TODO
+            import os
+
+            import requests
+
+            # Assuming you keep your tokens in environment variables:
+            YOUVERSION_DEVELOPER_TOKEN = os.environ["YOUVERSION_DEVELOPER_TOKEN"]
+
+            headers = {
+                "accept": "application/json",
+                "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
+                "accept-language": "de",
+            }
+
+            response = requests.get(
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1", headers=headers
+            )
+
+            print(response.content)
 
 
 See the JSON response!
