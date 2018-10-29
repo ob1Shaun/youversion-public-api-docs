@@ -42,8 +42,6 @@ for any request to the public API:
       - **Required**. Your personal API access token, provided in the YouVersion API Developers Portal.
     * - ``accept``
       - **Required**. Presently we'll be responding to public APIs with JSON, so the valid value here is ``application/json``.
-    * - ``referer``
-      - **Required**; **DEPRECATED** (removing from requirements). A "referer" value is required. Ideally, this is the URL of the app or website that is making the request. E.g., ``https://example.com/``.
     * - ``host``
       - **Required**. Almost always sent automatically by clients, so you likely don't have to provide this explicitly. Usually contains the domain portion of the request URL, e.g. ``developers.youversionapi.com``.
     * - ``user-agent``
