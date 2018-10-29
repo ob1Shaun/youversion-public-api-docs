@@ -96,7 +96,7 @@ Here are some examples showing what a valid request might look like for getting 
 
 
 
-
+.. _getting-an-api-token:
 
 Getting an API Token
 ====================
