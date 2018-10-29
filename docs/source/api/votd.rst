@@ -320,94 +320,90 @@ You could replace the ``kjv`` there with any valid version abbreviation, as
 returned by the :doc:`versions` endpoints.
 
 
-.. _api-votd-languages:
-
-Languages and Verse Of The Day Images
--------------------------------------
-
-.. note::
-
-    Some of the bahavior described here is still Work In Progress, and
-    may not be 100% accurate.
-
-
-If you send the optional ``Accept-Language`` header with your request, on a
-VOTD endpoint, **and** you don't specify a value for the ``version``
-query parameter, we'll try to send content back in a version that makes sense.
-
-Here's an example of a request that specifies a language, but no version:
-
-.. content-tabs::
-
-    .. tab-container:: curl
-        :title: curl
-
-        .. code-block:: text
-
-            curl --request GET \
-                --url 'https://developers.youversionapi.com/1.0/verse_of_the_day/1' \
-                --header 'accept: application/json' \
-                --header 'referer: https://your-app-url.com/' \
-                --header 'x-youversion-developer-token: {your_developer_token}'
-                --header 'accept-language: de'
-
-
-    .. tab-container:: js
-        :title: javascript
-
-        .. code-block:: javascript
-
-            // TODO
-
-    .. tab-container:: node
-        :title: node
-
-        .. code-block:: javascript
-
-            // TODO
-
-    .. tab-container:: python
-        :title: python
-
-        .. code-block:: python
-
-            # TODO
-
-
-Response:
-
-.. code-block:: json
-
-    {}
-
-TODO
-
-
 .. _api-votd-images:
 
 Verse Of The Day Images
 =======================
 
 You may notice that each Verse Of The Day Resource is returned with an
-``image`` property, containing an ``attribution`` and an ``id``.
-
-.. note::
-
-    This is a work in progress. For a glimpse at what you might be working
-    with, see: :ref:`configuration-response`
+``image`` property, which contains an ``attribution`` and ``url`` value.
 
 
-.. note::
+Image Sizes
+-----------
 
-    Note: The URL returned in **verse_of_the_day_images_base_url** will provide some values for you to replace.
+The URL returned in **url** will provide some values for you to replace.
 
-    - **{width}** and **{height}** : should be replaced with integers, each with a max of `1280`. Because our VOTD images are currently square, 1:1 size ratio, the
-      image CDN with automatically crop the square to the smallest size you provide here. For the time, it's best and most consistent for these integers to be the same.
-    - **{image_id}**: An integer representing the VOTD image you want to display. This value is provided on the Verse Of The Day Resource, as the `id` property on the `image` object property.
+    - **{width}** and **{height}** : should be replaced with integers, each with
+    a max of `1280`. Because our VOTD images are currently square, 1:1 size ratio,
+    the image CDN with automatically crop the square to the smallest size you
+    provide here. For the time, it's best and most consistent for these
+    integers to be the same.
 
+
+Using the Image URL
+-------------------
 
 .. attention::
 
-    You may notice the URL returned in **verse_of_the_day_images_base_url**  is prefixed with an "image-proxy" CDN URL.
+    You may notice the URL returned in **url**  is prefixed with an "image-proxy" CDN URL.
 
-    For performance and caching, you'll want to use the full URL provided, replacing just the template variables. Utilizing just the S3/other location directly will result in unnecessary increase in load times, and larger image sizes.
+    For performance and caching, you'll want to use the full URL provided,
+    replacing just the template variables. Utilizing just the S3/other location
+    directly will result in unnecessary increase in load times, and larger
+    image sizes.
+
+The URL provided is "schemaless": It has no "http(s):" before the first two
+slashes. This is to maintain some backwards compatibility until all existing
+platforms were able to transition to HTTPS. (E.g., to prevent
+mixed-content warnings on some web pages).
+
+You should almost always be serving content over HTTPS, so you'll usually
+just need to prefix the provided value with ``https:``.
+
+E.g., for a 500px square image, this:
+
+    ``//imageproxy-cdn.youversionapi.com/500x500/https://s3.amazonaws.com/static-youversionapi-com/images/base/6024/1280x1280.jpg``
+
+should become this:
+
+    ``https://imageproxy-cdn.youversionapi.com/500x500/https://s3.amazonaws.com/static-youversionapi-com/images/base/6024/1280x1280.jpg``
+
+
+
+.. _api-votd-languages:
+
+Languages and Verse Of The Day Images
+-------------------------------------
+
+We have a small (but growing!) list of non-English languages for which we
+maintain Verse Of The Day Image support.
+
+To retreive an image in a specified language, you can pass the ``Accept-Language``
+HTTP header with your request. If an image exists for the specified language,
+its URL will be retured in the ``image`` property, in place of the usual
+English image URL.
+
+Here's an example request for a Verse Of The Day Image in Spanish:
+
+    TODO
+
+
+.. note::
+
+    The **text** for the Verse Of The Day will always match the requested
+    **version** param, regardless of ``Accept-Language`` value.
+
+    ``Accept-Language`` is currently only used here to specify the language
+    for the **image** returned with the response.
+
+
+Valid Langauge Tags
+~~~~~~~~~~~~~~~~~~~
+
+Here is a list of valid language tags, and their language titles, for use
+requesting alternate Verse Of The Day Images:
+
+    TODO
+
+    table
