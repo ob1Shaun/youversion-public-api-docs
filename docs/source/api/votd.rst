@@ -33,9 +33,8 @@ Example request
             :caption: Get the VOTD for the first day of the year
 
             curl --request GET \
-                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1 \
+                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv \
                 --header 'accept: application/json' \
-                --header 'referer: https://your-app-url.com/' \
                 --header 'x-youversion-developer-token: {your_developer_token}'
 
     .. tab-container:: js
@@ -43,7 +42,15 @@ Example request
 
         .. code-block:: javascript
 
-            // TODO
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
+                headers: {
+                    'X-YouVersion-Developer-Token': '{your_developer_token}',
+                    'Accept-Language': 'en',
+                    Accept: 'application/json',
+                }
+            })
+            .then((result) => result.json())
+            .then((json) => console.log(json))
 
     .. tab-container:: node
         :title: node
@@ -65,12 +72,11 @@ Example request
 
             headers = {
                 'accept': "application/json",
-                "referer": "https://your-app-url.com/",
                 "x-youversion-developer-token": YOUVERSION_DEVELOPER_TOKEN,
                 "accept-language": "de"
             }
             response = requests.get(
-                "https://developers.youversionapi.com/1.0/verse_of_the_day/1",
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
                 headers=headers
             )
 
@@ -91,7 +97,7 @@ Query Parameters
     * - fields
       - Optional. A comma separated list of fields to return. Default is `*` (all fields).
     * - version
-      - Optional. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`Configuration <configuration>` endpoint for valid options.
+      - **Required**. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint docs for valid options.
 
 
 Request Headers
@@ -115,20 +121,20 @@ Example Response
 .. code-block:: json
 
     {
+        "verse": {
+            "human_reference": "Isaiah 43:19",
+            "usfms": [
+                "ISA.43.19"
+            ],
+            "url": "https://www.bible.com/bible/1/ISA.43.19.KJV",
+            "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+            "html": null
+        },
         "day": 1,
         "image": {
-            "attribution": "YouVersion",
-            "id": 42
-        },
-        "verse": {
-            "html": null,
-            "human_reference": "John 3:16",
-            "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
-            "url": "https://www.bible.com/bible/1/JHN.3.16",
-            "usfms": [
-                "JHN.3.16"
-            ]
-        },
+            "url": "//imageproxy-cdn.youversionapi.com/{width}x{height}/https://s3.amazonaws.com/static-youversionapi-com/images/base/6024/1280x1280.jpg",
+            "attribution": "© YouVersion"
+        }
     }
 
 
@@ -170,10 +176,9 @@ Example request
             :caption: Get all current VOTD content for the whole year
 
             curl --request GET \
-                --url https://developers.youversionapi.com/1.0/verse_of_the_day/ \
-                --header 'accept: application/json' \
-                --header 'referer: https://your-app-url.com/' \
-                --header 'x-youversion-developer-token: {your_developer_token}'
+            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv&=' \
+            --header 'accept: application/json' \
+            --header 'x-youversion-developer-token: {your_developer_token}'
 
     .. tab-container:: js
         :title: javascript
@@ -207,7 +212,7 @@ Query Parameters
     * - page_size
       - Optional. Integer representing "size of page", for pagination purposes. How many items to return per page.
     * - version
-      - Optional. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`Configuration <configuration>` endpoint for valid options.
+      - **Required**. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
 
 
 Request Headers
@@ -254,35 +259,35 @@ Example Response
     {
         "data": [
             {
+                "verse": {
+                    "human_reference": "Isaiah 43:19",
+                    "usfms": [
+                        "ISA.43.19"
+                    ],
+                    "url": "https://www.bible.com/bible/1/ISA.43.19.KJV",
+                    "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+                    "html": null
+                },
                 "day": 1,
                 "image": {
-                    "attribution": "YouVersion",
-                    "id": 42
-                },
-                "verse": {
-                    "html": null,
-                    "human_reference": "John 3:16",
-                    "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
-                    "url": "https://www.bible.com/bible/1/JHN.3.16.KJV",
-                    "usfms": [
-                        "JHN.3.16"
-                    ]
+                    "url": "//imageproxy-cdn.youversionapi.com/{width}x{height}/https://s3.amazonaws.com/static-youversionapi-com/images/base/6024/1280x1280.jpg",
+                    "attribution": "© YouVersion"
                 }
             },
             {
+                "verse": {
+                    "human_reference": "Hebrews 13:5",
+                    "usfms": [
+                        "HEB.13.5"
+                    ],
+                    "url": "https://www.bible.com/bible/1/HEB.13.5.KJV",
+                    "text": "Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee.",
+                    "html": null
+                },
                 "day": 2,
                 "image": {
-                    "attribution": "YouVersion",
-                    "id": 44
-                },
-                "verse": {
-                    "html": null,
-                    "human_reference": "Galatians 5:22",
-                    "text": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith,",
-                    "url": "https://www.bible.com/bible/1/GAL.5.22.KJV",
-                    "usfms": [
-                        "GAL.5.22"
-                    ]
+                    "url": "//imageproxy-cdn.youversionapi.com/{width}x{height}/https://s3.amazonaws.com/static-youversionapi-com/images/base/6025/1280x1280.jpg",
+                    "attribution": "© YouVersion"
                 }
             }
         ],
@@ -297,57 +302,34 @@ Specifying Bible Version
 ========================
 
 If you'd like to retrieve VOTD with text from a specific Bible version, you can
-pass an optional ``version`` query parameter with your request.
+pass an the ``version`` query parameter with your request. This param is required,
+and our examples thus far have been using ``kjv`` as the value.
+
 The list of valid values for ``version`` are available from the
 :doc:`versions` endpoint.
 
-Here's an example request for a single VOTD, in the King James Version:
+See those docs for accessing that endpoint. We use the Version ``abbreviation``
+value to specify the Bible Version for the ``version`` query parameter.
 
-.. content-tabs::
+E.g., here's the endpoint URL we've been using to get King James Version text
+when requesting Verse Of The Day:
 
-    .. tab-container:: curl
-        :title: curl
+    https://developers.youversionapi.com/1.0/verse_of_the_day/1?**version=kjv**
 
-        .. code-block:: text
+You could replace the ``kjv`` there with any valid version abbreviation, as
+returned by the :doc:`versions` endpoints.
 
-            curl --request GET \
-                --url 'https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv' \
-                --header 'accept: application/json' \
-                --header 'referer: https://your-app-url.com/' \
-                --header 'x-youversion-developer-token: {your_developer_token}'
-
-    .. tab-container:: js
-        :title: javascript
-
-        TODO
-
-    .. tab-container:: node
-        :title: node
-
-        TODO
-
-    .. tab-container:: python
-        :title: python
-
-        TODO
 
 .. _api-votd-languages:
 
-Languages and default Versions
-------------------------------
+Languages and Verse Of The Day Images
+-------------------------------------
 
 .. note::
 
     Some of the bahavior described here is still Work In Progress, and
     may not be 100% accurate.
 
-YouVersion APIs maintain a list of default Bible Versions for many languages,
-for use when language information is included in the request, but a Version was
-not specified.
-
-This allows us to do our best to honor the ``Accept-Language`` header from
-browsers and other API clients, and send something that most likely matches
-the end users' language and expectations.
 
 If you send the optional ``Accept-Language`` header with your request, on a
 VOTD endpoint, **and** you don't specify a value for the ``version``
