@@ -56,13 +56,6 @@ copied from the Developer Portal!
 
         .. code-block:: javascript
 
-            // TODO
-
-    .. tab-container:: node
-        :title: node
-
-        .. code-block:: javascript
-
             fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
                 headers: {
                     'X-YouVersion-Developer-Token': '{your_developer_token}',
@@ -72,6 +65,13 @@ copied from the Developer Portal!
             })
             .then((result) => result.json())
             .then((json) => console.log(json))
+
+    .. tab-container:: node
+        :title: node
+
+        .. code-block:: javascript
+
+            // TODO
 
     .. tab-container:: python
         :title: python
