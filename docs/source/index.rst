@@ -63,7 +63,15 @@ copied from the Developer Portal!
 
         .. code-block:: javascript
 
-            // TODO
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
+                headers: {
+                    'X-YouVersion-Developer-Token': '{your_developer_token}',
+                    'Accept-Language': 'en',
+                    Accept: 'application/json',
+                }
+            })
+            .then((result) => result.json())
+            .then((json) => console.log(json))
 
     .. tab-container:: python
         :title: python
@@ -84,7 +92,8 @@ copied from the Developer Portal!
             }
 
             response = requests.get(
-                "https://developers.youversionapi.com/1.0/verse_of_the_day/1", headers=headers
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
+                headers=headers
             )
 
             print(response.content)
