@@ -5,13 +5,12 @@ publicly available APIs.
 
 The live version of this documentation is currently hosted at: https://yv-public-api-docs-draft.netlify.com/
 
-
 ## How to modify and work on the docs
 
 ### Set up
 
- - Clone this repo!
- - Run `pipenv install` to get Sphinx and build dependencies installed.
+- Clone this repo!
+- Run `pipenv install` to get Sphinx and build dependencies installed.
 
 ### Modify or create some content
 
@@ -20,7 +19,7 @@ Sphinx (http://www.sphinx-doc.org/), using reStructuredText formatting (http://w
 
 ### Build and view the docs locally
 
- - Run `make html` from the project root (builds docs into `docs/build/html/`)
+- Run `make html` from the project root (builds docs into `docs/build/html/`)
 
 To view the docs, you can find the `index.html` file in the
 build output directory. To make sure everything behaves like
@@ -39,7 +38,7 @@ Like this:
 This project uses the 'contentui' extension for Sphinx, to lay out the
 code snippets in a tabbed UI. It enables a new directive that looks like this:
 
-```
+```rst
 .. content-tabs::
 
     .. tab-container::
