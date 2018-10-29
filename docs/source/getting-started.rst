@@ -93,6 +93,24 @@ Here are some examples showing what a valid request might look like for getting 
             # TODO
 
 
+Optional Headers
+----------------
+
+Some API endpoints accept optional headers, for various purposes. We'll
+try to document those inline with their respective purposes. This is just
+an overview of some possibilities.
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50 50
+
+    * - Optional Header
+      - Description
+    * - ``accept-language``
+      - **Optional**. Some API endpoints use the ``accept-language`` header to
+        determine appropriate content to return for the request. For a specific
+        example, see :ref:`api-votd-images`.
+
 
 .. _getting-an-api-token:
 
