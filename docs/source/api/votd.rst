@@ -132,9 +132,9 @@ Example Response
 Get many Verse Of The Day items
 ===============================
 
-It's possible to page through the Verse Of The Day items, getting multiple "days"
-at a time. Some apps might do this to precache several days at a time, to prevent
-having to request the Verse Of The Day on startup, for example.
+It's possible to page through the Verse Of The Day items, getting multiple
+"days" at a time. Some apps might do this to precache several days at a time,
+to prevent having to request the Verse Of The Day on startup, for example.
 
 
 .. tip::
@@ -226,7 +226,7 @@ Query Parameters
     * - page_size
       - Optional. Integer representing "size of page", for pagination purposes. How many items to return per page.
     * - version
-      - **Required**. The :doc:`Bible Version <api/versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
+      - **Required**. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
 
 
 Request Headers
@@ -316,8 +316,8 @@ Specifying Bible Version
 ========================
 
 If you'd like to retrieve VOTD with text from a specific Bible version, you can
-pass an the ``version`` query parameter with your request. This param is required,
-and our examples thus far have been using ``kjv`` as the value.
+pass an the ``version`` query parameter with your request. This param is
+required, and our examples thus far have been using ``kjv`` as the value.
 
 The list of valid values for ``version`` are available from the
 :doc:`versions` endpoint.
@@ -342,7 +342,8 @@ Verse Of The Day Images
 You may notice that each Verse Of The Day Resource is returned with an
 ``image`` property, which contains an ``attribution`` and ``url`` value.
 
-As a reminder, here's a snippet of what that section of the response looks like:
+As a reminder, here's a snippet of what that section of the response
+looks like:
 
 .. code-block:: javascript
 
@@ -360,13 +361,14 @@ Image Sizes
 The URL returned in **url** will provide some values for you to replace.
 
 * **{width}** and **{height}** : should be replaced with integers, each with
-  a max of ``1280``. Because our VOTD images are currently square (1:1 size ratio)
-  the image CDN with automatically crop the square to the smallest size you
-  provide here. For the time, it's best and most consistent for these
+  a max of ``1280``. Because our VOTD images are currently square (1:1 size
+  ratio) the image CDN with automatically crop the square to the smallest size
+  you provide here. For the time, it's best and most consistent for these
   integers to be the same.
 
 For example, if you wanted to get the VOTD Image as a 250x250px thumbnail,
-you could use the following URL (replacing ``{width}`` and ``{height}`` each with ``250``:
+you could use the following URL (replacing ``{width}`` and ``{height}``
+each with ``250``:
 
 .. code-block:: text
 
@@ -411,10 +413,10 @@ Languages and Verse Of The Day Images
 We have a small (but growing!) list of non-English languages for which we
 maintain Verse Of The Day Image support.
 
-To retreive an image in a specified language, you can pass the ``Accept-Language``
-HTTP header with your request. If an image exists for the specified language,
-its URL will be retured in the ``image`` property, in place of the usual
-English image URL.
+To retreive an image in a specified language, you can pass the
+``Accept-Language`` HTTP header with your request. If an image exists for the
+specified language, its URL will be retured in the ``image`` property, in place
+of the usual English image URL.
 
 Here's an example request for a Verse Of The Day Image in Spanish:
 
