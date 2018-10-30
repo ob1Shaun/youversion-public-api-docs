@@ -21,7 +21,19 @@ Get a single Verse Of The Day item
 **GET** /verse_of_the_day/{int: day_of_year}
 --------------------------------------------
 
-Example request
+The URL for requesting a single Verse Of The Day looks like
+``/verse_of_the_day/{day_of_year}``, where ``{day_of_year}`` is an integer
+value 1 through 366, representing the day of the year.
+
+See the Tip under :ref:`api-votd-get-multiple` for details on why we implemented
+this call with day of the year, instead of offering changing content
+at a bare endpoint.
+
+.. tip::
+
+    If you need help calculating the "day of the year", StackOverflow has
+    answers for various languages. Alternatively, feel free to join our Slack
+    channel and ask for recommendations.
 
 
 .. content-tabs::
@@ -329,10 +341,10 @@ value to specify the Bible Version for the ``version_id`` query parameter.
 E.g., here's the endpoint URL we've been using to get King James Version text
 when requesting Verse Of The Day:
 
-    https://developers.youversionapi.com/1.0/verse_of_the_day/1?**version_id=1**
+    ``https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1``
 
-You could replace the ``1`` there with any valid Version ID, as
-returned by the :doc:`versions` endpoints.
+You could replace the ``1`` from ``version_id=1`` there with any valid
+Version ID, as returned by the :doc:`versions` endpoints.
 
 
 .. _api-votd-images:
