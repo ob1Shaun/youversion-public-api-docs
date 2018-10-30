@@ -11,7 +11,7 @@ Get a list of available Bible Versions
 ======================================
 
 **GET** /versions
-~~~~~~~~~~~~~~~~~~~~~~
+-----------------
 
 Example request
 
@@ -77,18 +77,20 @@ Example Response
     {
         "data": [
             {
-                "version": {
-                    "abbreviation": "KJV",
-                    "copyright": "Crown Copyright in UK",
-                    "title": "King James Version"
-                }
+                "local_title": "King James Version",
+                "local_abbreviation": "KJV",
+                "abbreviation": "KJV",
+                "title": "King James Version",
+                "id": 1,
+                "copyright_short": "Crown Copyright in UK"
             },
             {
-                "version": {
-                    "abbreviation": "ASV",
-                    "copyright": "PUBLIC DOMAIN",
-                    "title": "American Standard Version"
-                }
+                "local_title": "American Standard Version",
+                "local_abbreviation": "ASV",
+                "abbreviation": "ASV",
+                "title": "American Standard Version",
+                "id": 12,
+                "copyright_short": "PUBLIC DOMAIN"
             }
         ],
         "next_page": false,
@@ -118,3 +120,35 @@ Versions response properties
     * - page_size
       - integer
       - Page size of response. How many Verse Of The Day resources are provided for this response.
+
+
+Bible Version object properties
+-------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 10 10 50
+
+    * - Property
+      - Type
+      - Description
+    * - local_title
+      - string
+      - TODO
+    * - local_abbreviation
+      - string
+      - TODO
+    * - abbreviation
+      - string
+      - TODO
+    * - title
+      - string
+      - TODO
+    * - id
+      - integer
+      - This value is used for getting information about a single Bible Version,
+        or for passing to endpoints that accept a specified version. E.g.,
+        the ``version_id`` parameter on calls for :doc:`votd` expect this value.
+    * - copyright_short
+      - string
+      - TODO
