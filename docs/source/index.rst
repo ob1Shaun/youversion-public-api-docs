@@ -12,12 +12,12 @@ YouVersion API Documentation
 We are so excited and thankful that you are interested in
 building tools to help build the Kingdom!
 
-This is the documentation site for our **currently very much in development**
+This is the documentation site for our **currently available**
 public API's.
 
 In the short term, we're starting with a public Verse Of The Day ("VOTD") API,
 so that developers can build and experiment with projects that utilize
-that information.
+that data.
 
 
 Quick Start: Get the Verse Of The Day!
