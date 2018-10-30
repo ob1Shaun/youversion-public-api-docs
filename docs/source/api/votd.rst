@@ -33,7 +33,7 @@ Example request
             :caption: Get the VOTD for the first day of the year
 
             curl --request GET \
-                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv \
+                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1 \
                 --header 'accept: application/json' \
                 --header 'x-youversion-developer-token: {your_developer_token}'
 
@@ -42,7 +42,7 @@ Example request
 
         .. code-block:: javascript
 
-            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1', {
                 headers: {
                     'X-YouVersion-Developer-Token': '{your_developer_token}',
                     'Accept-Language': 'en',
@@ -69,7 +69,7 @@ Example request
                 "accept-language": "en"
             }
             response = requests.get(
-                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1",
                 headers=headers
             )
 
@@ -85,8 +85,8 @@ Query Parameters
       - Description
     * - fields
       - Optional. A comma separated list of fields to return. Default is `*` (all fields).
-    * - version
-      - **Required**. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint docs for valid options.
+    * - version_id
+      - **Required**. Integer. Specifies the :doc:`Bible Version <versions>` that you want the content returned in. See the :doc:`<versions>` endpoint docs for valid options.
 
 
 Request Headers
@@ -165,7 +165,7 @@ Example request
             :caption: Get all current VOTD content for the whole year
 
             curl --request GET \
-            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv' \
+            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day?version_id=1' \
             --header 'accept: application/json' \
             --header 'x-youversion-developer-token: {your_developer_token}'
 
@@ -174,7 +174,7 @@ Example request
 
         .. code-block:: javascript
 
-            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv', {
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day?version_id=1', {
                 headers: {
                     'X-YouVersion-Developer-Token': '{your_developer_token}',
                     'Accept-Language': 'en',
@@ -203,7 +203,7 @@ Example request
             }
 
             response = requests.get(
-                "https://developers.youversionapi.com/1.0/verse_of_the_day?version=kjv",
+                "https://developers.youversionapi.com/1.0/verse_of_the_day?version_id=1",
                 headers=headers
             )
 
@@ -225,8 +225,8 @@ Query Parameters
       - Optional. Integer, representing the page number of results to return. Defaults to `1`.
     * - page_size
       - Optional. Integer representing "size of page", for pagination purposes. How many items to return per page.
-    * - version
-      - **Required**. The :doc:`Bible Version <versions>` abbreviation that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
+    * - version_id
+      - **Required**. Integer. Specifies the :doc:`Bible Version <versions>` that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
 
 
 Request Headers
@@ -316,21 +316,22 @@ Specifying Bible Version
 ========================
 
 If you'd like to retrieve VOTD with text from a specific Bible version, you can
-pass an the ``version`` query parameter with your request. This param is
-required, and our examples thus far have been using ``kjv`` as the value.
+pass an the ``version_id`` query parameter with your request. This param is
+required, and our examples thus far have been using ``1`` (which is the ID of
+the King James Version) as the value.
 
-The list of valid values for ``version`` are available from the
+The list of valid values for ``version_id`` are available from the
 :doc:`versions` endpoint.
 
-See those docs for accessing that endpoint. We use the Version ``abbreviation``
-value to specify the Bible Version for the ``version`` query parameter.
+See those docs for accessing that endpoint. We use the Version ``id``
+value to specify the Bible Version for the ``version_id`` query parameter.
 
 E.g., here's the endpoint URL we've been using to get King James Version text
 when requesting Verse Of The Day:
 
-    https://developers.youversionapi.com/1.0/verse_of_the_day/1?**version=kjv**
+    https://developers.youversionapi.com/1.0/verse_of_the_day/1?**version_id=1**
 
-You could replace the ``kjv`` there with any valid version abbreviation, as
+You could replace the ``1`` there with any valid Version ID, as
 returned by the :doc:`versions` endpoints.
 
 
@@ -428,17 +429,17 @@ Here's an example request for a Verse Of The Day Image in Spanish:
         .. code-block:: text
 
             curl --request GET \
-            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv' \
+            --url 'https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1' \
             --header 'accept: application/json' \
             --header 'accept-language: es' \
-            --header 'x-youversion-developer-token: hfAHdr4Z8NjSqY0JkspC6j0cSPg'
+            --header 'x-youversion-developer-token: {your_developer_token}'
 
     .. tab-container:: js
         :title: javascript
 
         .. code-block:: javascript
 
-            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1', {
             headers: {
                 'X-YouVersion-Developer-Token': '{your_developer_token}',
                 Accept: 'application/json',
@@ -468,7 +469,7 @@ Here's an example request for a Verse Of The Day Image in Spanish:
             }
 
             response = requests.get(
-                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1",
                 headers=headers
             )
 
@@ -476,8 +477,8 @@ Here's an example request for a Verse Of The Day Image in Spanish:
 
 .. note::
 
-    The **text** for the Verse Of The Day will always match the requested
-    **version** param, regardless of ``Accept-Language`` value.
+    The **text** returned for the Verse Of The Day will always match the
+    requested **version_id** param, regardless of ``Accept-Language`` value.
 
     ``Accept-Language`` is currently only used here to specify the language
     for the **image** returned with the response.
