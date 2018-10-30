@@ -142,12 +142,12 @@ But first?
 ==========
 
 Before you'll be able to get started using the API's, you'll need to get
-an access token to send along with each API request.
+an access token to send along with each API request. How to get a token is
+explained in the :ref:`getting-started` section.
 
-That's explained in the :ref:`getting-started` section.
-
-If you already have a token, you can head on over to the API documentation, and
-see example requests, responses, and how to interact with the API!
+If you already have a token, let's get started! Have a look at the API
+documentation, see example requests, responses, and how to interact with
+the API!
 
 
 All the Docs So Far
@@ -172,8 +172,9 @@ Open Digerati! You can find out more at https://opendigerati.com/
 This Documentation
 ==================
 
-These docs are open source. Suggestions for improvements (and pull requests) are welcome! You can view the code repository at
+This documentation is open source. Suggestions for improvements (and pull
+requests) are welcome! You can view the source of these docs at
 https://github.com/lifechurch/youversion-public-api-docs.
 
-They are
-built and deployed to https://yv-public-api-docs-draft.netlify.com/
+Documentation is built and deployed to
+https://yv-public-api-docs.netlify.com/
