@@ -25,9 +25,9 @@ The URL for requesting a single Verse Of The Day looks like
 ``/verse_of_the_day/{day_of_year}``, where ``{day_of_year}`` is an integer
 value 1 through 366, representing the day of the year.
 
-See the Tip under :ref:`api-votd-get-multiple` for details on why we implemented
-this call with day of the year, instead of offering changing content
-at a bare endpoint.
+See the Tip under :ref:`api-votd-get-multiple` for details on why we
+implemented this call with day of the year, instead of offering changing
+content at a bare endpoint.
 
 .. tip::
 
@@ -98,7 +98,7 @@ Query Parameters
     * - fields
       - Optional. A comma separated list of fields to return. Default is `*` (all fields).
     * - version_id
-      - **Required**. Integer. Specifies the :doc:`Bible Version <versions>` that you want the content returned in. See the :doc:`<versions>` endpoint docs for valid options.
+      - **Required**. Integer. Specifies the :doc:`Bible Version <versions>` that you want the content returned in. See the :doc:`versions` endpoint docs for valid options.
 
 
 Request Headers
@@ -238,7 +238,7 @@ Query Parameters
     * - page_size
       - Optional. Integer representing "size of page", for pagination purposes. How many items to return per page.
     * - version_id
-      - **Required**. Integer. Specifies the :doc:`Bible Version <versions>` that you want the content returned in. See the :doc:`<versions>` endpoint for valid options.
+      - **Required**. Integer. Specifies the :doc:`Bible Version <versions>` that you want the content returned in. See the :doc:`versions` endpoint for valid options.
 
 
 Request Headers

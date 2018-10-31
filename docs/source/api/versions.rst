@@ -2,9 +2,11 @@
 Versions
 ========
 
-The Versions endpoint provides a list of valid Bible Versions. The abbreviations
-for these versions are used by the Verse Of The Day APIs, when passing
-the ``version`` parameter.
+The Versions endpoint provides a list of valid Bible Versions.
+
+These versions are used to specify values for other API endpoints. E.g., the
+``id`` property on a Bible Version is used by the Verse Of The Day API to
+specify which version of Bible text to return in the response.
 
 
 Get a list of available Bible Versions
