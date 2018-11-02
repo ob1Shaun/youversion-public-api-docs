@@ -126,8 +126,6 @@ an overview of some possibilities.
 Getting an API Token
 ====================
 
-TODO: Walkthrough. Where and how?
-
 Visit the YouVersion API Developers Portal: https://developers.youversion.com
 
 Sign in there with your existing YouVersion account credentials to authorize
