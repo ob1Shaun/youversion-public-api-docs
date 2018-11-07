@@ -58,7 +58,7 @@ Here are some examples showing what a valid request might look like for getting 
         .. code-block:: text
 
             curl --request GET \
-                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv \
+                --url https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1 \
                 --header 'accept: application/json' \
                 --header 'x-youversion-developer-token: {your_developer_token}'
 
@@ -67,7 +67,7 @@ Here are some examples showing what a valid request might look like for getting 
 
         .. code-block:: javascript
 
-            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv', {
+            fetch('https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1', {
             headers: {
                 'X-YouVersion-Developer-Token': '{your_developer_token}',
                 Accept: 'application/json',
@@ -95,7 +95,7 @@ Here are some examples showing what a valid request might look like for getting 
             }
 
             response = requests.get(
-                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version=kjv",
+                "https://developers.youversionapi.com/1.0/verse_of_the_day/1?version_id=1",
                 headers=headers
             )
 
